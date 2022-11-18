@@ -6,8 +6,6 @@ const { faker } = require('@faker-js/faker');
 
 app.listen( port, () => console.log(`Listening on port: ${port}`) );
 
-// we can hard code some users like this
-// later on we will want to store users in a database
 
 const createPerson = () => {
     const newFake = {
@@ -47,15 +45,18 @@ app.get("/api/users/new", (req, res) => {
     res.json(newUser );
 });
 
+
 app.get("/api/companies/new", (req, res) => {
     const newCompany = createCompany();
     console.log(newCompany);
     res.json(newComp);
 });
 
+
 app.get("/api/user/company", (req, res) => {
     res.json(newComp, newFake);
 });
+
 
 app.post('/addUser', (req,res)=> {
     console.log(req.body)
